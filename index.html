@@ -38,6 +38,38 @@
   </style>
 </head>
 <body>
+
+<style>
+  .language-toggle {
+    position: fixed;
+    top: 10px;
+    right: 15px;
+    background: #eee;
+    border: 1px solid #aaa;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-size: 14px;
+    z-index: 999;
+  }
+</style>
+<div class="language-toggle">
+  <button onclick="setLanguage('zh')">中文</button>
+  <button onclick="setLanguage('en')">English</button>
+</div>
+<script>
+  function setLanguage(lang) {
+    const zh = document.querySelectorAll('.zh');
+    const en = document.querySelectorAll('.en');
+    zh.forEach(el => el.style.display = (lang === 'zh' ? '' : 'none'));
+    en.forEach(el => el.style.display = (lang === 'en' ? '' : 'none'));
+    localStorage.setItem('lang', lang);
+  }
+  window.onload = () => {
+    const savedLang = localStorage.getItem('lang') || 'zh';
+    setLanguage(savedLang);
+  }
+</script>
+
   <h2>InterLink 註冊與挖礦教學<br/>InterLink Registration & Mining Tutorial</h2>
 
   <p class="zh">手機商店下載 InterLink Network→然後打開</p>
@@ -106,5 +138,10 @@
     <p class="zh">製作人pi夢工場</p>
     <p class="en">Created by: Pi Dream Studio</p>
   </div>
+
+<div style="margin-top: 40px; font-size: 14px; text-align: center; color: #666;">
+  👉 本頁永久網址：<a href="https://roy11906.github.io/interlink-hyra-guide/" target="_blank">https://roy11906.github.io/interlink-hyra-guide/</a>
+</div>
 </body>
+
 </html>
